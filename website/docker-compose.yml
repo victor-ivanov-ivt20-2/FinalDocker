@@ -1,8 +1,20 @@
 version: '3.9'
 services:
+  backend: 
+    container_name: backend
+    image: victhun/backend
+    restart: always
+    ports:
+      - "3005:3005"
+  frontend:
+    container_name: frontend
+    image: victhun/frontend
+    restart: always
+    ports:
+      - "3000:3000"
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
+    command: --interval 30 backend frontend
