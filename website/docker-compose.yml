@@ -4,6 +4,8 @@ services:
     container_name: backend
     image: victhun/backend
     restart: always
+    environment:
+      - DATABASE_URL="postgresql://ace:password@ace-development.ru:5432/db?schema=public"
     ports:
       - "3005:3005"
   frontend:
